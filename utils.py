@@ -1,8 +1,10 @@
 import numpy
+import cv2
+from matplotlib import pyplot
 
 # 添加椒盐噪声
 # 传入参数为原始图片及信噪比
-# random时0代表不处理，1代表盐噪声，2代表椒噪声，椒、盐噪声比例相同
+# random时0代表不处理，1代表盐噪声，2代表椒噪声，椒、盐噪声比例定为相同
 def addSaltPepper(rawImg, SNR):
     noiseImg = rawImg.copy()
     row, col, channel = noiseImg.shape
@@ -12,7 +14,10 @@ def addSaltPepper(rawImg, SNR):
 
     return noiseImg
 
+# 均值滤波器
+# 采用普通算术方法
+# 传入参数为噪声图片及掩膜的边长
+def meanFilter(noiseImg, maskSize):
+    meanImg = noiseImg.copy()
 
-# def arithmeticMeanFilter(noiseImg, maskSize):
-#     processedImg = noiseImg.copy()
-#     return processedImg
+    return meanImg
